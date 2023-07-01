@@ -21,7 +21,7 @@ jobs:
           file: ./chatservice/Dockerfile
           push: true
           tags: |
-            mateuspada/imersao-chatservice:v1
+            mateuspada/imersao-chatservice:v${{ github.run_number }}
             mateuspada/imersao-chatservice:latest
       - name: Docker build webapp
         uses: docker/build-push-action@v4.1.1
@@ -30,7 +30,7 @@ jobs:
           file: ./webapp/Dockerfile
           push: true
           tags: |
-            mateuspada/imersao-gpt-webapp:v1
+            mateuspada/imersao-gpt-webapp:v${{ github.run_number }}
             mateuspada/imersao-gpt-webapp:latest
 
   CD:
