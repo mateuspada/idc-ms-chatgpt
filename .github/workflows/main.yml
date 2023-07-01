@@ -49,6 +49,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           
+      - name: Configuração do OpenAI API Token
+        shell: bash
+        run: |
+          sed -i "s/{{API_TOKEN}}/${{ secrets.OPENAI_API_KEY }}/g" ./k8s/deploy-chatservice.yaml
+          
       - name: Configuração do Kubectl
         run: echo "configurar o kubectl"
 
