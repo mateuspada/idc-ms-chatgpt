@@ -55,7 +55,9 @@ jobs:
           sed -i "s/{{API_TOKEN}}/${{ secrets.OPENAI_API_KEY }}/g" ./k8s/deploy-chatservice.yaml
           
       - name: Configuração do Kubectl
-        run: echo "configurar o kubectl"
+        shell: bash
+        run: |
+          aws eks update-kubeconfig --name eks-imersao --region us-east-1
 
       - name: Deploy das aplicações
         run: echo "executar kubectl apply"
