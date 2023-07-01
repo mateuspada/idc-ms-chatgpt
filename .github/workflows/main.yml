@@ -59,5 +59,10 @@ jobs:
         run: |
           aws eks update-kubeconfig --name eks-imersao --region us-east-1
 
-      - name: Deploy das aplicações
-        run: echo "executar kubectl apply"
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v4.9
+        with:
+          manifests: |
+            k8s/deploy-chatservice.yaml
+          images: |
+            fabricioveronez/imersao-chatservice:v${{ github.run_number }}
