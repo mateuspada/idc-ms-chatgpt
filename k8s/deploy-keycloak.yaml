@@ -9,10 +9,6 @@ spec:
       app: keycloak
   template:
     metadata:
-      # annotations:
-      #   prometheus.io/scrape: "true"
-      #   prometheus.io/port: "8080"
-      #   prometheus.io/path: "/metrics"
       labels:
         app: keycloak
     spec:
@@ -42,11 +38,10 @@ metadata:
   labels:
     app: keycloak
 spec:
-  ports:
-  - name: http
-    port: 80
-    targetPort: 8080
-    #nodePort: 30001
+  type: LoadBalancer
   selector:
     app: keycloak
-  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080

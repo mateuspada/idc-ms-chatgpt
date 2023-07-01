@@ -43,16 +43,12 @@ spec:
       app: chatservice
   template:
     metadata:
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "8080"
-        prometheus.io/path: "/metrics"
       labels:
         app: chatservice
     spec: 
       containers:
         - name: chatservice
-          image: fabricioveronez/imersao-chatservice:v1
+          image: mateuspada/imersao-chatservice:v1
           ports:
           - containerPort: 8080
             name: http
