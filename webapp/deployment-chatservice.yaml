@@ -48,7 +48,7 @@ spec:
     spec:
       containers:
       - name: chatservice
-        image: fabricioveronez/gpt-chatservice:v1
+        image: mateuspada/gpt-chatservice:v1
         ports:
         - containerPort: 8080
           name: http
